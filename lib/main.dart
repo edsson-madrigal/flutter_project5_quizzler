@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
 
 import 'package:flutter/material.dart';
 
@@ -39,6 +39,12 @@ class _QuizPageState extends State<QuizPage> {
     'A slug\'s blood is green.',
   ];
 
+  List<bool> answers = [
+    false,
+    true,
+    true,
+  ];
+
   int questionNumber = 0;
 
   @override
@@ -74,6 +80,13 @@ class _QuizPageState extends State<QuizPage> {
                   )),
               child: Text('TRUE'),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+                if (correctAnswer == true) {
+                  print('corret');
+                } else {
+                  print('wrong');
+                }
+
                 setState(() {
                   questionNumber += 1;
                 });
@@ -93,6 +106,12 @@ class _QuizPageState extends State<QuizPage> {
                   )),
               child: Text('FALSE'),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+                if (correctAnswer == true) {
+                  print('corret');
+                } else {
+                  print('wrong');
+                }
                 setState(() {
                   questionNumber += 1;
                 });
